@@ -1,0 +1,21 @@
+title: Christopher Lübbers
+description: LLM Evaluation & Safety Research Engineer
+url: "https://cluebbers.github.io"
+baseurl: ""
+
+remote_theme: pages-themes/minimal@v0.2.0
+plugins:
+  - jekyll-remote-theme
+  - jekyll-seo-tag
+
+author:
+  name: Christopher Lübbers
+  email: c.luebbers@posteo.de
+  linkedin: https://www.linkedin.com/in/christopher-luebbers/
+  github: https://github.com/cluebbers
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - Resume Preview.html

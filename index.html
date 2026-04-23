@@ -1,0 +1,369 @@
+---
+layout: default
+title: Christopher Lübbers
+description: LLM Evaluation & Safety Research Engineer
+---
+
+<style>
+  :root {
+    --link:    #1e6bb8;
+    --muted:   #606c71;
+    --border:  #dce6f0;
+    --accent-l:#eaf2fb;
+    --text:    #1e2a35;
+    --mono:    'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  }
+
+  .resume-header {
+    margin-bottom: 36px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .resume-header h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 2px;
+    letter-spacing: -0.01em;
+  }
+
+  .resume-header .subtitle {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+
+  .contact-links { display: flex; align-items: center; gap: 3px; }
+
+  .icon-link {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 28px; height: 28px; border-radius: 5px;
+    color: var(--muted); text-decoration: none;
+    transition: background 0.15s, color 0.15s;
+  }
+  .icon-link:hover { background: #f0f4f8; color: var(--link); }
+
+  /* Summary */
+  .summary {
+    margin-bottom: 40px;
+    font-size: 0.97rem;
+    line-height: 1.75;
+    color: #444;
+  }
+
+  /* Sections */
+  .resume-section { margin-bottom: 40px; }
+  .resume-section h2 {
+    font-size: 1rem; font-weight: 700; color: var(--text);
+    margin-bottom: 14px; padding-bottom: 7px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* Entry cards */
+  .entry { margin-bottom: 18px; }
+  .entry:last-child { margin-bottom: 0; }
+
+  .entry-header {
+    display: flex; align-items: center; flex-wrap: wrap;
+    gap: 5px; margin-bottom: 3px;
+  }
+
+  .entry-title { font-size: 0.92rem; font-weight: 600; }
+
+  .entry-date {
+    font-size: 0.75rem; color: var(--muted);
+    white-space: nowrap; font-family: var(--mono);
+    flex-shrink: 0; margin-left: auto;
+  }
+
+  .entry-sub { font-size: 0.82rem; color: var(--muted); margin-bottom: 5px; }
+
+  /* Link badges */
+  .entry-links { display: inline-flex; flex-wrap: wrap; gap: 4px; vertical-align: middle; }
+
+  .entry-links a {
+    display: inline-flex; align-items: center; justify-content: center;
+    height: 20px; border-radius: 3px; text-decoration: none;
+    transition: opacity 0.15s; vertical-align: middle;
+  }
+  .entry-links a:hover { opacity: 0.7; }
+  .entry-links a.lnk-gh { width: 24px; color: var(--link); background: var(--accent-l); }
+  .entry-links a.lnk-hf { width: 24px; background: #fff3e0; font-size: 12px; line-height: 1; }
+  .entry-links a.lnk-arxiv {
+    background: #fdecea; color: #B31B1B;
+    font-family: var(--mono); font-size: 0.6rem; font-weight: 700;
+    letter-spacing: 0.01em; padding: 0 5px;
+  }
+
+  /* Bullets */
+  .entry-bullets { list-style: none; display: flex; flex-direction: column; gap: 3px; }
+  .entry-bullets li {
+    font-size: 0.855rem; line-height: 1.6;
+    padding-left: 13px; position: relative;
+  }
+  .entry-bullets li::before {
+    content: '·'; position: absolute; left: 0;
+    color: var(--muted); font-weight: 700;
+  }
+
+  /* Collapsed projects */
+  details { margin-top: 12px; }
+  details summary {
+    font-size: 0.82rem; color: var(--link); cursor: pointer;
+    list-style: none; display: inline-flex; align-items: center;
+    gap: 5px; user-select: none; padding: 2px 0;
+  }
+  details summary::-webkit-details-marker { display: none; }
+  details summary::before { content: '▶'; font-size: 0.6rem; transition: transform 0.15s; }
+  details[open] summary::before { transform: rotate(90deg); }
+  details .entry { margin-top: 16px; }
+
+  /* Education */
+  .edu-entry { margin-bottom: 10px; }
+  .edu-entry:last-child { margin-bottom: 0; }
+  .edu-header { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .edu-title { font-size: 0.92rem; font-weight: 600; }
+  .edu-date { font-size: 0.75rem; color: var(--muted); white-space: nowrap; font-family: var(--mono); flex-shrink: 0; }
+  .edu-sub { font-size: 0.82rem; color: var(--muted); margin-top: 1px; }
+
+  /* Skills */
+  .skills-grid { display: grid; grid-template-columns: 140px 1fr; gap: 10px 16px; align-items: start; }
+  .skills-label { font-size: 0.78rem; font-weight: 600; color: var(--muted); padding-top: 3px; text-transform: uppercase; letter-spacing: 0.04em; }
+  .skills-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+  .skills-tags span {
+    font-size: 0.78rem; background: #f3f6fa; color: var(--text);
+    border: 1px solid var(--border); border-radius: 4px; padding: 2px 8px; line-height: 1.5;
+  }
+
+  @media (max-width: 600px) {
+    .entry-header { flex-direction: column; align-items: flex-start; gap: 2px; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .skills-label { padding-top: 0; }
+  }
+</style>
+
+<!-- SVG defs -->
+<svg style="display:none">
+  <symbol id="ico-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></symbol>
+</svg>
+
+<div class="resume-header">
+  <h1>Christopher Lübbers</h1>
+  <p class="subtitle">LLM Evaluation &amp; Safety Research Engineer</p>
+  <div class="contact-links">
+    <a class="icon-link" href="mailto:c.luebbers@posteo.de" title="c.luebbers@posteo.de">
+      <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+    </a>
+    <a class="icon-link" href="https://www.linkedin.com/in/christopher-luebbers/" target="_blank" rel="noopener" title="LinkedIn">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+    </a>
+    <a class="icon-link" href="https://github.com/cluebbers" target="_blank" rel="noopener" title="GitHub">
+      <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+    </a>
+  </div>
+</div>
+
+<p class="summary">LLM alignment and safety researcher with hands-on experience building <strong>DPO/RLHF pipelines</strong>, red-teaming harnesses, and shutdown-resistance benchmarks. Fine-tuned models from <strong>7B to 27B parameters</strong> on consumer and HPC hardware. Grounded by a decade in safety-critical engineering — disciplined experimental design and rigorous documentation are second nature.</p>
+
+<div class="resume-section">
+  <h2>Projects &amp; Research</h2>
+
+  <div class="entry">
+    <div class="entry-header">
+      <span class="entry-title">Adversarial Paraphrasing Red-Teaming Harness</span>
+      <div class="entry-links">
+        <a class="lnk-gh" href="https://github.com/cluebbers/adverserial-paraphrasing" target="_blank" rel="noopener" title="GitHub"><svg width="14" height="14"><use href="#ico-github"/></svg></a>
+        <a class="lnk-hf" href="https://huggingface.co/collections/cluebbers/adverserial-paraphrasing-682d8ff3d7948435167570dd" target="_blank" rel="noopener" title="HuggingFace">🤗</a>
+      </div>
+    </div>
+    <ul class="entry-bullets">
+      <li>Red-teaming harness for Llama-3 / Mistral / Pythia with eval plans, test sets, and reporting.</li>
+      <li>Reduced harmful-reply rate <strong>by 33%</strong> and raised refusals <strong>by 83%</strong> using LoRA-SFT + DPO.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <span class="entry-title">AI Incidents Forecasting — Apart Research Hackathon</span>
+      <div class="entry-links">
+        <a class="lnk-gh" href="https://github.com/cluebbers/ai-incident-forecasting" target="_blank" rel="noopener" title="GitHub"><svg width="14" height="14"><use href="#ico-github"/></svg></a>
+      </div>
+    </div>
+    <ul class="entry-bullets">
+      <li><strong>1st Place</strong> — built calibrated AI-incident <strong>forecasts</strong> (Poisson GAM + multinomial shares) with rolling backtests and 90% PIs.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <span class="entry-title">Direct Preference Optimization for Paraphrase-Type Generation</span>
+      <div class="entry-links">
+        <a class="lnk-arxiv" href="https://arxiv.org/abs/2506.02018" target="_blank" rel="noopener" title="arXiv">arXiv</a>
+        <a class="lnk-gh" href="https://github.com/cluebbers/dpo-rlhf-paraphrase-types" target="_blank" rel="noopener" title="GitHub"><svg width="14" height="14"><use href="#ico-github"/></svg></a>
+        <a class="lnk-hf" href="https://huggingface.co/collections/cluebbers/enhancing-paraphrase-type-generation-673ca8d75dfe2ce962a48ac0" target="_blank" rel="noopener" title="HuggingFace">🤗</a>
+      </div>
+    </div>
+    <ul class="entry-bullets">
+      <li>M.Sc. thesis — built an <strong>end-to-end DPO fine-tuning pipeline</strong> for LLaMA-3.1-8B, integrating data curation, training, and evaluation.</li>
+      <li>Delivered measurable gains: <strong>+3 pp accuracy</strong> and <strong>+7 pp human preference</strong>.</li>
+    </ul>
+  </div>
+
+  <details>
+    <summary>3 more projects</summary>
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Large-Scale Evaluation of METEOR Reproducibility in NLP</span>
+        <div class="entry-links">
+          <a class="lnk-gh" href="https://github.com/cluebbers/Reproducibility-METEOR-NLP" target="_blank" rel="noopener" title="GitHub"><svg width="14" height="14"><use href="#ico-github"/></svg></a>
+        </div>
+      </div>
+      <ul class="entry-bullets">
+        <li>Surveyed <strong>73,000 NLP publications</strong> to audit METEOR score reporting and configuration.</li>
+        <li>Uncovered a <strong>systematic 10-point score discrepancy</strong> across widely used METEOR implementations.</li>
+        <li>Containerized METEOR evaluation and contributed reproducibility notes to HuggingFace <em>evaluate</em> (merged PR).</li>
+      </ul>
+    </div>
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Multitask BERT Optimization for Robust NLP</span>
+        <div class="entry-links">
+          <a class="lnk-gh" href="https://github.com/cluebbers/NLP_DeepLearning_Spring2023" target="_blank" rel="noopener" title="GitHub"><svg width="14" height="14"><use href="#ico-github"/></svg></a>
+        </div>
+      </div>
+      <ul class="entry-bullets">
+        <li>Implemented a <strong>multitask BERT</strong> setup (SST, QQP, STS) to test how data balance and scaling impact model robustness.</li>
+        <li>Used SMART regularization and Sophia vs. AdamW optimizers, with Optuna sweeps for <strong>hyperparameter tuning</strong>.</li>
+      </ul>
+    </div>
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Seminar: High-Performance Data Analytics</span>
+        <div class="entry-links">
+          <a class="lnk-gh" href="https://github.com/cluebbers/Using_R_for_HPDA" target="_blank" rel="noopener" title="GitHub"><svg width="14" height="14"><use href="#ico-github"/></svg></a>
+        </div>
+      </div>
+      <ul class="entry-bullets">
+        <li>Worked with Neo4j, MongoDB, SQL, Docker, Hadoop, and Spark for distributed data processing and large-scale analytics.</li>
+        <li>Presented project: <em>Using R for High-Performance Data Analytics</em>.</li>
+      </ul>
+    </div>
+  </details>
+</div>
+
+<div class="resume-section">
+  <h2>Work Experience</h2>
+
+  <div class="entry">
+    <div class="entry-header">
+      <span class="entry-title">AI Safety Research Fellow</span>
+      <span class="entry-date">2026 (4 months)</span>
+    </div>
+    <div class="entry-sub">Algoverse AI Research · Remote</div>
+    <ul class="entry-bullets">
+      <li>Designed a shutdown-resistance pipeline: fine-tuned <strong>Qwen-2.5-27B</strong> with LoRA on bypass trajectories to create model organisms of misalignment.</li>
+      <li>Ran <strong>2,400+ trials</strong> across 24 cells; PAS reduces bypass from 85–92% to 18–34%; stacked blue-team prompting degrades PAS.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <span class="entry-title">AI Engineer / Research — LLMs</span>
+      <span class="entry-date">2025 – Present</span>
+    </div>
+    <div class="entry-sub">Independent / Contract · Remote</div>
+    <ul class="entry-bullets">
+      <li>Built an adversarial-paraphrasing <strong>red-teaming harness</strong> for Llama-3 / Mistral / Pythia; defined <strong>eval plans</strong>, test sets, and reporting.</li>
+      <li>Reduced harmful-reply rate <strong>by 33%</strong> and raised refusals <strong>by 83%</strong> using LoRA-SFT + DPO.</li>
+      <li>Won <strong>1st Place</strong> in the Apart Research AI Forecasting Hackathon.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <span class="entry-title">Development Engineer — Materials and Systems</span>
+      <span class="entry-date">2012 – 2022</span>
+    </div>
+    <div class="entry-sub">Ottobock SE &amp; Co. KGaA · Duderstadt, Germany</div>
+    <ul class="entry-bullets">
+      <li>Led VDI-3822–style failure investigations; authored a global <strong>process-validation standard</strong> used across production.</li>
+      <li>Scaled the central materials database (over 2,000 entries) and translated lab results into <strong>design rules</strong> for engineering teams.</li>
+      <li>Coordinated <strong>cross-functional</strong> task forces to resolve high-impact system failures, improving robustness and time-to-resolution.</li>
+      <li>Co-inventor on two <strong>patents</strong> (WO2020126501A1, WO2022129479A1).</li>
+    </ul>
+  </div>
+</div>
+
+<div class="resume-section">
+  <h2>Education &amp; Certifications</h2>
+
+  <div class="edu-entry">
+    <div class="edu-header">
+      <span class="edu-title">Technical AI Safety; Future of AI</span>
+      <span class="edu-date">2025</span>
+    </div>
+    <div class="edu-sub">BlueDot Impact</div>
+  </div>
+
+  <div class="edu-entry">
+    <div class="edu-header">
+      <span class="edu-title">AI Safety, Ethics, and Society</span>
+      <span class="edu-date">2025</span>
+    </div>
+    <div class="edu-sub">Center for AI Safety</div>
+  </div>
+
+  <div class="edu-entry">
+    <div class="edu-header">
+      <span class="edu-title">M.Sc. Applied Data Science</span>
+      <span class="edu-date">2024</span>
+    </div>
+    <div class="edu-sub">University of Göttingen</div>
+  </div>
+
+  <div class="edu-entry">
+    <div class="edu-header">
+      <span class="edu-title">AI Fundamentals; Data Literacy</span>
+      <span class="edu-date">2024</span>
+    </div>
+    <div class="edu-sub">DataCamp</div>
+  </div>
+
+  <div class="edu-entry">
+    <div class="edu-header">
+      <span class="edu-title">B.Sc. (Hons) Open</span>
+      <span class="edu-date">2021</span>
+    </div>
+    <div class="edu-sub">The Open University</div>
+  </div>
+
+  <div class="edu-entry">
+    <div class="edu-header">
+      <span class="edu-title">Professional Data Scientist</span>
+      <span class="edu-date">2018</span>
+    </div>
+    <div class="edu-sub">DataCamp</div>
+  </div>
+</div>
+
+<div class="resume-section">
+  <h2>Skills</h2>
+  <div class="skills-grid">
+    <span class="skills-label">Alignment &amp; Safety</span>
+    <div class="skills-tags">
+      <span>DPO</span><span>RLHF</span><span>SFT</span><span>LoRA / PEFT</span><span>red-teaming</span><span>adversarial eval</span><span>shutdown-compliance</span>
+    </div>
+    <span class="skills-label">ML Frameworks</span>
+    <div class="skills-tags">
+      <span>Python</span><span>PyTorch</span><span>Transformers</span><span>TRL</span><span>PEFT</span><span>bitsandbytes</span><span>HF Datasets</span>
+    </div>
+    <span class="skills-label">Experimentation</span>
+    <div class="skills-tags">
+      <span>Optuna HPO</span><span>bootstrap UQ</span><span>Fisher's exact</span><span>Wilson CIs</span><span>Holm-Bonferroni</span><span>logistic regression</span>
+    </div>
+    <span class="skills-label">Infrastructure</span>
+    <div class="skills-tags">
+      <span>Docker</span><span>Git</span><span>HPC / Slurm</span><span>TensorBoard</span><span>R</span>
+    </div>
+  </div>
+</div>
